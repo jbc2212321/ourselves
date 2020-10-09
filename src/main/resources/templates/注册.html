@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home</title>
+
+<!-- CSS -->
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/css/form-elements.css">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<!-- Favicon and touch icons -->
+<link rel="shortcut icon" href="assets/ico/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+</head>
+
+<body>
+
+<!-- Top menu -->
+<nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="index.html"></a>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="top-navbar-1">
+		
+		</div>
+	</div>
+</nav>
+
+<!-- Top content -->
+<div class="top-content">
+	
+	<div class="inner-bg">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2 text">
+					<h1><strong>注册</strong></h1>
+					<div class="description">
+					</div>
+				</div>
+			</div>
+			<div class="row" id="app">
+				<div class="col-sm-6 col-sm-offset-3 form-box">
+					<form role="form" th:action="@{/in2}" method="post" class="registration-form"  onsubmit="return check_message()">
+						<fieldset>
+							<div class="form-top">
+								<div class="form-top-left">
+									<h3>步骤 1 / 2</h3>
+									<p>请输入注册信息:</p>
+								</div>
+								<div class="form-top-right">
+									<i class="fa fa-user"></i>
+								</div>
+							</div>
+							<div class="form-bottom">
+								<!-- 注册用户名 -->
+								<div class="form-group">
+									<label class="sr-only" for="form-id">ID</label>
+									<input type="text" name="username" placeholder="请输入用户名" class="form-id form-control" id="form-id">
+								</div>
+									<!-- 注册手机号码 -->
+								<div class="form-group">
+									<label class="sr-only" for="form-tel">TEL</label>
+									<input type="text" name="phone" placeholder="请输入您的手机号码" class="form-tel form-control" id="form-tel"  maxlength="11" v-model="phoneValue">
+								</div>
+									<!-- 验证码 -->
+								<div class="form-code">
+									<table>
+										<tr>
+<!--											<td><label class="sr-only" for="form-code">验证码</label>-->
+<!--											<input type="text" name="form-code" placeholder="验证码" class="form-code form-control" id="form-code" v-model="phone_code"></td>-->
+<!--											<td>&nbsp;&nbsp; <button type="button" class="btn btn-sent" @click="send">获取验证码</button></td>-->
+											<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="button" class="btn btn-next">下一步</button></td>
+										</tr>
+								</table>
+								</div>
+								<br>
+								
+							</div>
+						</fieldset>
+						<fieldset>
+							<div class="form-top">
+								<div class="form-top-left">
+									<h3>步骤 2 / 2</h3>
+									  <!--密码-->
+									<p>请设置账户密码:</p>
+								</div>
+								<div class="form-top-right">
+									<i class="fa fa-key"></i>
+								</div>
+							</div>
+							<div class="form-bottom">
+								<div class="form-group">
+									<label class="sr-only" for="form-password">输入密码</label>
+									<input type="password" name="form-password" placeholder="设置密码" class="form-password form-control" id="form-password" minlength="6" maxlength="10" v-model="password">
+								</div>
+								<div class="form-group">
+									<label class="sr-only" for="form-repeat-password">重复密码</label>
+									<input type="password" name="form-repeat-password" placeholder="再次输入确认密码" 
+												class="form-repeat-password form-control" id="form-repeat-password" minlength="6" maxlength="10" v-model="copy_password">
+								</div>
+								<button  type="button" class="btn btn-previous">上一步</button>
+								<button  type="submit" class="btn btn-previous">完成</button>
+							</div>
+						</fieldset>
+
+					</form>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</div>
+Copyright &copy; 2020.JiangBeichen&LiYuanzhe.
+
+<!-- Javascript -->
+<script src="assets/js/jquery-1.11.1.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.backstretch.min.js"></script>
+<script src="assets/js/retina-1.1.0.min.js"></script>
+<script src="assets/js/scripts.js"></script>
+<script th:src="@{js/vue.min.js}"></script>
+<script th:src="@{js/CheckMessage.js}"></script>
+<!--[if lt IE 10]>
+	<script src="assets/js/placeholder.js"></script>
+<![endif]-->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</body>
+
+</html>

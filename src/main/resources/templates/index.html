@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Responsive Web UI Kit &amp; Dashboard Template based on Bootstrap">
+    <meta name="author" content="AdminKit">
+    <meta name="keywords" content="adminkit, bootstrap, web ui kit, dashboard template, admin template">
+
+    <link rel="shortcut icon" href="img/icons/icon-48x48.png"/>
+
+    <title>难度选择</title>
+
+    <link th:href="@{/css/app.css}" rel="stylesheet">
+</head>
+
+<body>
+<div class="wrapper">
+    <nav id="sidebar" class="sidebar">
+        <div class="sidebar-content js-simplebar">
+            <a class="sidebar-brand">
+                <span class="align-middle">题目自动生成程序</span>
+            </a>
+
+            <ul class="sidebar-nav">
+                <li class="sidebar-header">
+                    页面
+                </li>
+
+                <li class="sidebar-item active">
+                    <a class="sidebar-link" th:href="@{/index/in}">
+                        <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">做题</span>
+                    </a>
+                </li>
+
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" th:href="@{/index/setting}">
+                        <i class="align-middle" data-feather="settings"></i> <span class="align-middle">设置</span>
+                    </a>
+                </li>
+
+            </ul>
+
+
+    </nav>
+
+    <div class="main">
+        <nav class="navbar navbar-expand navbar-light navbar-bg">
+            <a class="sidebar-toggle d-flex">
+                <i class="hamburger align-self-center"></i>
+            </a>
+
+            <form class="form-inline d-none d-sm-inline-block">
+                <div class="input-group input-group-navbar">
+                    <input type="text" class="form-control" placeholder="搜索……" aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn" type="button">
+                            <i class="align-middle" data-feather="search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav navbar-align">
+                    <li class="nav-item dropdown">
+                        <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-toggle="dropdown">
+                            <i class="align-middle" data-feather="settings"></i>
+                        </a>
+                        <!-- 用户名 -->
+                        <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
+                            <i class="fa fa-user" alt="用户头像"></i>
+                            <span class="text-dark" th:text="${username}"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <!-- 设置以及登出按键 -->
+                            <a class="dropdown-item" th:href="@{/index/setting}"><i class="align-middle mr-1"
+                                                                                   data-feather="settings"></i> 设置</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" th:href="@{/index}">登出</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="content">
+            <div class="container-fluid p-0">
+
+                <h1 class="h3 mb-3">选择难度</h1>
+                <div class="row">
+                    <div class="col-md-3 col-xl-2">
+                        <form th:action="@{/index/readquestion}">
+                            <tr>
+                                <td><input type="number" id=ques_num class="form-control" placeholder="请输入出题数量"
+                                           name="number" min="10" max="30"></td>
+                            </tr>
+                            <br>
+                            <!-- 此处跳转到做题 -->
+                            <table>
+
+                                <tr><h1 class="h1 mb-3">年级</h1></tr>
+
+                                <tr>
+                                    <td><input type="radio" name="level" value="小学" id=AA></td>
+                                    <td id="A"><h4 class="h4">小学难度</h4></td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="radio" name="level" value="初中" id=BB></td>
+                                    <td id="B"><h4 class="h4">初中难度</h4></td>
+                                </tr>
+
+                                <tr>
+                                    <td><input type="radio" name="level" value="高中" id=CC></td>
+                                    <td id="C"><h4 class="h4">高中难度</h4></td>
+                                </tr>
+                            </table>
+                            <button type="submit" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;提交&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<tton>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+    </div>
+</div>
+</main>
+
+<script src="js/vendor.js"></script>
+<script src="js/app.js"></script>
+
+
+</body>
+
+</html>

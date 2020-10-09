@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+<title>登录</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/css/form-elements.css">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<link rel="shortcut icon" href="assets/ico/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" th:href="@{/register}"></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="top-navbar-1">
+            
+            </div>
+        </div>
+    </nav>
+
+<div class="top-content">
+    <div class="inner-bg">
+        <div class="row">
+			<div class="col-sm-8 col-sm-offset-2 text">
+					<h1><strong>登录</strong></h1>
+			</div>
+            <div class="row">
+                <div class="col-sm-4 col-sm-offset-4 form-box">
+                    <!-- form card login -->
+                    <form role="form" th:action="@{/in}" method="post" class="registration-form" >
+                        <fieldset>
+							<div class="form-top">
+								<div class="form-top-left">
+									<h3>登录</h3>
+									<p>请输入账号信息:</p>
+                                    <p  style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+								</div>
+							</div>
+							<div class="form-bottom">
+								<div class="form-code">
+                                            <!-- <td><div class="form-top-left"><i class="fa fa-user"></i></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>	 -->
+                                            <td><label class="sr-only" for="username">用户名</label>
+											<input type="text" name="username" placeholder="请输入用户名" class="form-code form-control" id="username"></td>
+                                            <br>
+                                            <td><label class="sr-only" for="username">密码</label>
+                                                <input type="password" name="password" placeholder="请输入密码" class="form-code form-control" id="password"></td>
+                                       
+                                </div>
+                                <br>
+                                <div class="col-lg-12 text-right">
+									<div class=""><button type="submit" class="btn btn-success hover-btn btn-wd " id="btnLogin"><span>登录</span></button></div>
+								</div>
+								<br>
+								
+							</div>
+                        </fieldset>
+                    </form>
+							
+							<div class="row mb-3">
+								
+                            </div>
+                            <br>
+							<div class="row">
+								<div class="col-lg-12">
+									<div class="create-box text-block text-center my-0">
+										<span class="text-small font-weight-semibold">没有注册？</span>
+										<!-- 跳转到注册界面 -->
+										<a th:href="@{/register}" class="text-black text-small">新建账户</a>
+									</div>
+								</div>
+							</div>
+                        </div>
+                        <!--/card-block-->
+                    </div>
+                    <!-- /form card login -->
+                </div>
+            </div>
+            <!--/row-->
+        </div>
+        <!--/col-->
+    </div>
+    <!--/row-->
+</div>
+<!--/container-->
+Copyright &copy; 2020.JiangBeichen&LiYuanzhe.
+<script src="assets/js/jquery-1.11.1.min.js"></script>
+<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.backstretch.min.js"></script>
+<script src="assets/js/retina-1.1.0.min.js"></script>
+<script src="assets/js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Main-Class: com.jbc.OurselvesApplication
+Class-Path: snakeyaml-1.26.jar spring-context-support-5.2.9.RELEASE.jar 
+ jackson-datatype-jsr310-2.11.2.jar logback-classic-1.2.3.jar spring-exp
+ ression-5.2.9.RELEASE.jar spring-boot-starter-logging-2.3.4.RELEASE.jar
+  thymeleaf-extras-java8time-3.0.4.RELEASE.jar spring-oxm-5.2.9.RELEASE.
+ jar spring-boot-autoconfigure-2.3.4.RELEASE.jar jul-to-slf4j-1.7.30.jar
+  spring-boot-starter-redis-1.3.8.RELEASE.jar spring-boot-starter-web-2.
+ 3.4.RELEASE.jar unbescape-1.1.6.RELEASE.jar spring-boot-2.3.4.RELEASE.j
+ ar opentracing-noop-0.33.0.jar jackson-annotations-2.11.2.jar spring-da
+ ta-keyvalue-2.3.4.RELEASE.jar tomcat-embed-core-9.0.38.jar gson-2.8.6.j
+ ar spring-aop-5.2.9.RELEASE.jar thymeleaf-3.0.11.RELEASE.jar commons-co
+ dec-1.14.jar spring-beans-5.2.9.RELEASE.jar jedis-3.3.0.jar jakarta.ann
+ otation-api-1.3.5.jar spring-data-commons-2.3.4.RELEASE.jar commons-log
+ ging-1.2.jar javax.activation-api-1.2.0.jar spring-boot-starter-tomcat-
+ 2.3.4.RELEASE.jar tomcat-embed-websocket-9.0.38.jar spring-data-redis-2
+ .3.4.RELEASE.jar opentracing-util-0.33.0.jar attoparser-2.0.5.RELEASE.j
+ ar jackson-core-2.11.2.jar jackson-databind-2.11.2.jar jackson-module-p
+ arameter-names-2.11.2.jar jaxb-api-2.3.1.jar slf4j-api-1.7.30.jar byte-
+ buddy-agent-1.4.32.jar logback-core-1.2.3.jar log4j-to-slf4j-2.13.3.jar
+  spring-boot-starter-2.3.4.RELEASE.jar spring-context-5.2.9.RELEASE.jar
+  org.jacoco.agent-0.8.5-runtime.jar spring-boot-starter-thymeleaf-2.3.4
+ .RELEASE.jar spring-web-5.2.9.RELEASE.jar jakarta.el-3.0.3.jar spring-c
+ ore-5.2.9.RELEASE.jar opentracing-api-0.33.0.jar httpcore-4.4.13.jar by
+ te-buddy-1.8.12.jar spring-boot-starter-json-2.3.4.RELEASE.jar spring-j
+ cl-5.2.9.RELEASE.jar jackson-datatype-jdk8-2.11.2.jar aliyun-java-sdk-c
+ ore-4.5.3.jar spring-webmvc-5.2.9.RELEASE.jar log4j-api-2.13.3.jar http
+ client-4.5.12.jar commons-pool2-2.8.1.jar ini4j-0.5.4.jar spring-tx-5.2
+ .9.RELEASE.jar thymeleaf-spring5-3.0.11.RELEASE.jar
+

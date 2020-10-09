@@ -1,0 +1,13 @@
+{
+  "properties": [
+    {
+      "name": "spring.mvc.static-path-pattern：/static/**",
+      "type": "java.lang.String",
+      "description": "Description for spring.mvc.static-path-pattern：/static/**."
+    },
+    {
+      "name": "redis.session.timeout",
+      "type": "java.lang.String",
+      "description": "Description for redis.session.timeout."
+    }
+  ] }

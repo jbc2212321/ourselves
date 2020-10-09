@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Responsive Web UI Kit &amp; Dashboard Template based on Bootstrap">
+    <meta name="author" content="AdminKit">
+    <meta name="keywords" content="adminkit, bootstrap, web ui kit, dashboard template, admin template">
+
+    <link rel="shortcut icon" href="img/icons/icon-48x48.png"/>
+
+    <title>做题</title>
+
+    <link th:href="@{/css/app.css}" rel="stylesheet">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+</head>
+
+<body>
+<div class="wrapper">
+    <nav id="sidebar" class="sidebar">
+        <div class="sidebar-content js-simplebar">
+            <a class="sidebar-brand">
+                <span class="align-middle">题目自动生成程序</span>
+            </a>
+
+            <ul class="sidebar-nav">
+                <li class="sidebar-header">
+                    页面
+                </li>
+
+                <li class="sidebar-item active">
+                    <a class="sidebar-link">
+                        <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">做题</span>
+                    </a>
+                </li>
+
+
+                <li class="sidebar-item">
+                    <a class="sidebar-link" th:href="@{/index/setting}">
+                        <i class="align-middle" data-feather="settings"></i> <span class="align-middle">设置</span>
+                    </a>
+                </li>
+
+            </ul>
+
+    </nav>
+
+    <div class="main">
+        <nav class="navbar navbar-expand navbar-light navbar-bg">
+            <a class="sidebar-toggle d-flex">
+                <i class="hamburger align-self-center"></i>
+            </a>
+
+            <form class="form-inline d-none d-sm-inline-block">
+                <div class="input-group input-group-navbar">
+                    <input type="text" class="form-control" placeholder="搜索……" aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn" type="button">
+                            <i class="align-middle" data-feather="search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav navbar-align">
+                    <li class="nav-item dropdown">
+                        <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-toggle="dropdown">
+                            <i class="align-middle" data-feather="settings"></i>
+                        </a>
+                        <!-- 用户名 -->
+                        <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
+                            <i class="fa fa-user" alt="用户头像"></i>
+                            <span class="text-dark" th:text="${username}"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <!-- 设置以及登出按键 -->
+                            <a class="dropdown-item" th:href="@{/index/in}"> 返回选题</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" th:href="@{/index}">登出</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="content">
+            <div class="col-md-9 col-xl-10" id="question">
+                <form>
+                    <table>
+                        <tr><h1 class="h1 mb-4" id="X" v-text="questions[index]"></h1></tr>
+
+                        <tr>
+                            <td><input type="radio" name="answer"  id=AA value="0" v-model="checkValue"></td>
+                            <td id="A" >A.{{options_A[index]}}</td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="radio" name="answer"  id=BB value="1" v-model="checkValue"></td>
+                            <td id="B">B.{{options_B[index]}}</td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="radio" name="answer"  id=CC value="2" v-model="checkValue"></td>
+                            <td id="C">C.{{options_C[index]}}</td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="radio" name="answer"  id=DD value="3" v-model="checkValue"></td>
+                            <td id="D">D.{{options_D[index]}}</td>
+                        </tr>
+                    </table>
+
+
+                </form>
+                <br>
+                <!-- 上/下/确认 -->
+<!--                <button type="button"  class="btn btn-primary" @click="prev">上一题</button>-->
+                <button type="button"  class="btn btn-primary" @click="next">下一题</button>
+                <button type="button"  class="btn btn-primary" @click="confirm" v-show="is_show">确认</button>
+            </div>
+        </main>
+    </div>
+</div>
+<!--	<script src="js/vendor.js"></script>-->
+<script th:src="@{/js/app.js}"></script>
+<script th:src="@{/js/vue.min.js}"></script>
+<script th:inline="javascript">
+    var app = new Vue({
+        el: "#question",
+        data: {
+            questions: [[${questions}]],
+            answer:[[${answer}]],
+            options_A:[[${options_A}]],
+            options_B:[[${options_B}]],
+            options_C:[[${options_C}]],
+            options_D:[[${options_D}]],
+            number:[[${number}]],
+            index:0,
+            score:0,
+            checkValue:-1,
+            is_show:false,
+        },
+        methods:{
+            next:function ()  //按钮向后切题
+            {
+                if (this.index===0){
+                    this.score=0;
+                }
+                if (this.index===this.number-1) {
+                    this.is_show=true;
+                    return;
+                }
+                switch (Number(this.checkValue)) {
+                    case 0:
+                        if (this.options_A[this.index]===this.answer[this.index]){
+                            this.score++;
+                        }
+                        break;
+                    case 1:
+                        if (this.options_B[this.index]===this.answer[this.index]){
+                            this.score++;
+                        }
+                        break;
+                    case 2:
+                        if (this.options_C[this.index]===this.answer[this.index]){
+                            this.score++;
+                        }
+                        break;
+                    case 3:
+                        if (this.options_D[this.index]===this.answer[this.index]){
+                            this.score++;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                this.checkValue=-1;
+                this.index++;
+            },
+            confirm:function () //确认，交卷
+            {
+                switch (Number(this.checkValue)) {
+                    case 0:
+                        if (this.options_A[this.index]===this.answer[this.index]){
+                            this.score++;
+                        }
+                        break;
+                    case 1:
+                        if (this.options_B[this.index]===this.answer[this.index]){
+                            this.score++;
+                        }
+                        break;
+                    case 2:
+                        if (this.options_C[this.index]===this.answer[this.index]){
+                            this.score++;
+                        }
+                        break;
+                    case 3:
+                        if (this.options_D[this.index]===this.answer[this.index]){
+                            this.score++;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                alert("准确率:"+this.score/this.number*100+"%")
+                this.score=0;
+            },
+        }
+    })
+</script>
+</body>
+
+</html>
